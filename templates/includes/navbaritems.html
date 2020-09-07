@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+<li class="nav-item">
+	<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+</li>
+<li class="nav-item">
+	<a class="nav-link" href="{% url 'main:your_summarizations' %}">Your Summarizations</a>
+</li>
+{% else %}
+<li class="nav-item">
+	<a class="nav-link" href="{% url 'login' %}">Login</a>
+</li>
+<li class="nav-item">
+	<a class="nav-link" href="{% url 'main:register' %}">Register</a>
+</li>
+{% endif %}

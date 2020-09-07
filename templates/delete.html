@@ -1,0 +1,22 @@
+{% extends 'header.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <br>
+    <div class="jumbotron">
+        {% if summarized.user == request.user %}
+            <form method="POST">
+            <h2>Are you sure to delete???</h2>
+            <br>
+            {% csrf_token %}
+            {{form|crispy}}
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+        {% else %}   
+            <div class="container">
+                <h2 class="heading font-weight-light text-center">You don't have access to this page!</h2>
+            </div>
+        {% endif %}  
+    </div>
+{% endblock %}

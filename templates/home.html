@@ -1,0 +1,21 @@
+{% extends 'header.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<br>
+	<div class="jumbotron">
+		<h2>Text Summarization</h2><br>
+        <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+            <button type="submit" class="btn btn-primary">Summarize</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+    	{% if inp != "" %}
+    	document.getElementById("id_text_input").value = "{{request.session.input}}";
+    	{% endif %}
+    </script>
+
+{% endblock %}

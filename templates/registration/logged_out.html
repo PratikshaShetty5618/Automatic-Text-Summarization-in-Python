@@ -1,0 +1,13 @@
+{% extends 'header.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <br>
+    <div class="jumbotron">
+        <h2>Successfully Logged Out!!!</h2>
+        <br>
+        <a href="{% url 'main:homepage' %}"><button class="btn btn-primary">Go Back</button></a>
+    </div>
+    
+{% endblock %}

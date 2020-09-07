@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+
+{% block content %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <br>
+    <div class="jumbotron">
+      {% if summ %}
+        <center><h2>Previous Summarizations</h2></center>
+        <br>
+        <table class="table table-hover table-responsive-sm">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Text Name</th>
+              <th scope="col">Dated</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>    
+          <tbody>
+            {% for item in summ %}
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td><h5><a class="text-decoration-none" href="{% url 'main:detail' item.id %}">{{item.text}}</a></h5></td>
+              <td>{{item.created_date}}</td>
+              <td><a href="{% url 'main:delete' item.id %}" class="btn btn-danger btn-sm" role="button" style="float: right; margin-right: 5px;">Delete <i class="fa fa-trash"></i></a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p class="d-block font-weight-light my-2 heading">You haven't saved any summarizations yet!!</p>
+      {% endif %}    
+    </div>
+{% endblock content %}
+

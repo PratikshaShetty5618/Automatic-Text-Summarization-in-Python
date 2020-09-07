@@ -1,0 +1,18 @@
+{% extends 'header.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <br>
+	<div class="jumbotron">
+        <h4>Input Provided</h4><br>
+        <p>{{request.session.input}}</p>
+        <br>
+        <h4>Summarized Output</h4><br>
+        <p>{{request.session.output}}</p>
+        <br>
+        <a href="{% url 'main:save_result' %}"><button class="btn btn-primary">Save the Result</button></a>
+        <a href="{% url 'main:homepage' %}"><button class="btn btn-primary">Go back to Homepage</button></a>
+        <a href="{% url 'main:edit_input' %}"><button class="btn btn-primary">Edit the input</button></a>
+    </div>
+
+{% endblock %}

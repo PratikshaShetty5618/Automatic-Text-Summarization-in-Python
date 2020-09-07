@@ -1,0 +1,24 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <br>
+	<div class="jumbotron">
+        {% if summarized.user == request.user %}
+            <h4>Text Name:</h4>
+            <p>{{summarized.text}}</p>
+            <br>
+            <h4>Input Provided:</h4><br>
+            <p>{{summarized.text_input}}</p>
+            <br>
+            <h4>Summarized Output:</h4><br>
+            <p>{{summarized.text_output}}</p>
+            <br>
+            <a href="{% url 'main:your_summarizations' %}"><button class="btn btn-primary">Go back</button></a>
+        {% else %}   
+            <div class="container">
+                <h2 class="heading font-weight-light text-center">You don't have access to this page!</h2>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
